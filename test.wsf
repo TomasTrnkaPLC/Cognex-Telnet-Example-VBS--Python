@@ -1,0 +1,40 @@
+<job>
+<script language="VBScript">
+Option Explicit
+On Error Resume Next
+Dim WshShell
+set WshShell=CreateObject("WScript.Shell")
+WshShell.run "cmd.exe"
+
+Wscript.echo  "Inno4Life - Cognex In-Sight Telnet Example Tomáš Trnka"
+WScript.Sleep 1000
+WshShell.SendKeys "telnet 192.168.1.78"
+WshShell.Sendkeys("{Enter}")
+WScript.Sleep 1000
+WshShell.Sendkeys("admin")
+WshShell.Sendkeys("{Enter}")
+WScript.Sleep 1000
+WshShell.Sendkeys("{Enter}")
+WScript.Sleep 1000
+Wscript.echo "Returns the filename of the active job on the vision system"
+WshShell.SendKeys "GF"
+WshShell.Sendkeys("{Enter}")
+WScript.Sleep 1000
+Wscript.echo "Returns system information about the In-Sight vision system."
+WshShell.SendKeys "GI"
+WshShell.SendKeys ("{Enter}")
+WScript.Sleep 1000
+Wscript.echo "Returns the Online state of the vision system."
+WshShell.SendKeys "GO"
+WshShell.SendKeys ("{Enter}")
+WScript.Sleep 1000
+Wscript.echo "Set Camera On-Line"
+WshShell.SendKeys "SO1"
+WshShell.SendKeys ("{Enter}")
+WScript.Sleep 1000
+Wscript.echo "Returns the Online state of the vision system."
+WshShell.SendKeys "GO"
+WshShell.SendKeys ("{Enter}")
+WScript.Quit 
+</script>
+</job>
